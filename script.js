@@ -3,9 +3,9 @@ var name = 'Hello There! ';
 var message = name + 'Please present your vaccination card upon entry';
 
 var element = document.getElementById('tea');
-element.textContent=message;
+element.textContent = message;
 
-var today = new Date()
+var today = new Date();
 var year = today.getFullYear();
 var fullyvaxed = new Date('Sept 9, 2021');
 var difference = today.getTime() - fullyvaxed.getTime();
@@ -23,5 +23,3 @@ Stat.textContent = Math.floor(difference) + ' days after being fully vaccinated'
  console.log('Access Denied');
 else if (date >= 'September 23, 2021' && <'November 10, 2021')
 console.log('Access Permitted');
-
- 
