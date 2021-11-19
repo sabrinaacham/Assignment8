@@ -5,22 +5,25 @@ var message = name + 'Please present your vaccination card upon entry';
 var element = document.getElementById('tea');
 element.textContent = message;
 
-function VaxCard (name, date) {
- this.name = name;
- this.secondShotDate = date;
- this.fullyVaxxed = secondDate;
- this.checkLegitimacy = function ()
+//vaxcard object containing date of second shot, the present date and their status
+var vaxCard = {}
+
+vaxCard.secondShotDate = 'Sept 9, 2021';
+vaxCard.presentDate = today; //referencing object
+vaxCard.checkStatus = function () {
+  return (this.presentDate - this.secondShotDate) / (1000 * 60 * 60 * 24);
+
 };
 
 
-var today = new Date();
-var year = today.getFullYear();
-var fullyvaxed = new Date('Sept 9, 2021');
-var difference = today.getTime() - fullyvaxed.getTime();
-difference = (difference / (1000 * 60 * 60 * 24));
+var today = new Date();    //built in object
+//
+//
+var answer = vaxCard.checkStatus();
+//difference = (difference / (1000 * 60 * 60 * 24));
 
-var Stat = document.getElementById('status');
-Stat.textContent = Math.floor(difference) + ' days after being fully vaccinated';
+var stat = document.getElementById('status');
+stat.textContent = Math.floor(answer) + ' days after being fully vaccinated';
 
 
 
