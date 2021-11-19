@@ -5,6 +5,14 @@ var message = name + 'Please present your vaccination card upon entry';
 var element = document.getElementById('tea');
 element.textContent = message;
 
+function VaxCard (name, date) {
+ this.name = name;
+ this.secondShotDate = date;
+ this.fullyVaxxed = secondDate;
+ this.checkLegitimacy = function ()
+};
+
+
 var today = new Date();
 var year = today.getFullYear();
 var fullyvaxed = new Date('Sept 9, 2021');
@@ -13,6 +21,8 @@ difference = (difference / (1000 * 60 * 60 * 24));
 
 var Stat = document.getElementById('status');
 Stat.textContent = Math.floor(difference) + ' days after being fully vaccinated';
+
+
 
 //If date of entry is after September 23rd: Entry Admitted!
 //If date of entry is before September 23rd: Entry Dendied!
