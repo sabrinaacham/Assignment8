@@ -5,20 +5,21 @@ var message = name + 'Please present your vaccination card upon entry';
 var element = document.getElementById('tea');
 element.textContent = message;
 
+var today = new Date();    //built in object
+//
+//
+
 //vaxcard object containing date of second shot, the present date and their status
 var vaxCard = {}
 
-vaxCard.secondShotDate = 'Sept 9, 2021';
+vaxCard.secondShotDate = new Date('Sept 9, 2021');
 vaxCard.presentDate = today; //referencing object
 vaxCard.checkStatus = function () {
-  return (this.presentDate - this.secondShotDate) / (1000 * 60 * 60 * 24);
+  return (this.presentDate.getTime() - this.secondShotDate.getTime()) / (1000 * 60 * 60 * 24);
 
 };
 
 
-var today = new Date();    //built in object
-//
-//
 var answer = vaxCard.checkStatus();
 //difference = (difference / (1000 * 60 * 60 * 24));
 
@@ -34,5 +35,5 @@ stat.textContent = Math.floor(answer) + ' days after being fully vaccinated';
  let date = 'September 9, 2021';
  if (date >= 'September 9, 2021' && date < 'September 23, 2021')
  console.log('Access Denied');
-else if (date >= 'September 23, 2021' && <'November 10, 2021')
+else if (date >= 'September 23, 2021' && date < 'November 10, 2021')
 console.log('Access Permitted');
