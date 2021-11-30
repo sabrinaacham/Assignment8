@@ -65,11 +65,6 @@ function idCard (patronName, expirationDate){
 
  var idCardArray = [patron1,patron2, patron3, patron4, patron5, patron6];
 
- if (idCardArray.checkExpiry == true) {
-   var reply = "Your ID has expired"
-   return reply;
- }else if
-
   function vaccinationCard(patronName, secondShotDate, firstShotDate) {
     this.name = patronName;
     this.secondShotDate = new Date(second);
@@ -82,12 +77,45 @@ function idCard (patronName, expirationDate){
     }
 
 
-    this.checkVaccinationCard = function(index) {
-      var date = this.checkDifference();
-      var twoWeekWindow = 14 - date;
+    //this.checkVaccinationCard = function(index) {
+    //  var date = this.checkDifference();
+      //var twoWeekWindow = 14 - date;
 
       //if (twoWeekWindow == 1) {
       //  Message = "day";
       //} else {
       //  Message = "days";
       //}
+      if (idCardArray.checkExpiry() == true); {
+        var reply = "Your ID has expired"
+        return reply;
+      }else if (idCardArray.name() !== this.name) {
+        var reply = "The names on your ID and Vaccination cards do not match";
+        return reply;
+      }else if (typeof this.firstShotDate == 'undefined') {
+        var reply = "You're not vaccinated!"
+        return reply;
+      }else if (typeof this.secondShotDate == 'undefined') {
+        var reply = "You're not fully vaccinated";
+        return reply;
+      }
+    };
+
+    var potentialPatron1 = new vaccinationCard('Daenerys Targaryen', '01/11/2022', '30/11/2021'); //entry allowed
+    var potentialPatron2 = new vaccinationCard('Brienne OfTarth', '01/01/2022', '30/11/2021'); // entry allowed
+    var potentialPatron3 = new vaccinationCard('Jamie Lannister', '23/04/2021', '30/11/2021');//ID card expired, entry denied.
+    var potentialPatron4 = new vaccinationCard('Daario Naharis', '30/06/2024', '30/11/2021');
+    var potentialPatron5 = new vaccinationCard('Ned Stark', '12/04/2023', '30/11/2021');
+    var potentialPatron6 = new vaccinationCard('Jorah Mormont', '04/13/2020', '30/11/2021');
+
+    var vaccinationCardArray = [potentialPatron1, potentialPatron2patron2, potentialPatron3, potentialPastron4, potentialPatron5, potentialPatron6];
+
+    var vaccinationCardArrayLength = vaccinationCardArray.length;
+
+    for (var i = 0; i < vaccinationCardArrayLength; i++) {
+      console.log (patrons [i]);
+      document.write("<tr>")
+      document.write("<td>", idCardArray[i].name, "</td>")
+      document.write("<td>", vaccinationCardArray[i].checkVaccinationCard, "</td>")
+      document.write("</tr")
+    }
